@@ -1,0 +1,79 @@
+
+package ordenar;
+import java.util.ArrayList;
+
+ public class QuickSort {
+     
+    private ArrayList<Integer> array;
+    private int length;
+    
+    public ArrayList<Integer> sort(ArrayList<Integer> Vet_QuickSort) { // recebe vetor
+         
+        if (Vet_QuickSort == null || Vet_QuickSort.isEmpty()) {
+            return Vet_QuickSort;
+        }
+        this.array = Vet_QuickSort;
+        length = Vet_QuickSort.size();
+        quickSort(0, length - 1);
+        return (array);
+    }
+ 
+    private void quickSort(int lowerIndex, int higherIndex) {
+         
+        int i = lowerIndex;
+        int j = higherIndex;
+        // calculate pivot number, I am taking pivot as middle index number
+        int pivot = array.get(lowerIndex+(higherIndex-lowerIndex)/2);
+        // Divide into two arrays
+        while (i <= j) {
+            /**
+             * In each iteration, we will identify a number from left side which
+             * is greater then the pivot value, and also we will identify a number
+             * from right side which is less then the pivot value. Once the search
+             * is done, then we exchange both numbers.
+             */
+            while (array.get(i) < pivot) {
+                i++;
+            }
+            while (array.get(j) > pivot) {
+                j--;
+            }
+            if (i <= j) {
+                exchangeNumbers(i, j);
+                //move index to next position on both sides
+                i++;
+                j--;
+            }
+        }
+        // call quickSort() method recursively
+        if (lowerIndex < j)
+            quickSort(lowerIndex, j);
+        if (i < higherIndex)
+            quickSort(i, higherIndex);
+    }
+ 
+    private void exchangeNumbers(int i, int j) {
+        int temp = array.get(i);
+        array.set(i, array.get(j));
+        array.set(j, temp);
+    }
+     
+    /*public static void main(String a[]){
+         
+        MyQuickSort sorter = new MyQuickSort();
+       
+        ArrayList<Integer> Vet = new ArrayList<>();
+        Vet.add(45);Vet.add(85);Vet.add(25);Vet.add(15);Vet.add(45);
+        Vet.add(05);Vet.add(25);Vet.add(75);Vet.add(85);Vet.add(435);
+        ArrayList<Integer> Vet2 = new ArrayList<>();
+        Vet2 = sorter.sort(Vet);
+        
+        
+        System.out.println("\n\n\n");
+        System.out.println(Vet2.size());;
+        System.out.println("\n\n\n");
+        for (int i = 0 ; i < Vet2.size();i++){
+            System.out.println(Vet2.get(i));
+        }
+    }*/
+}
