@@ -5,3 +5,5 @@ Apartir do JPane é possivel abrir uma GUI para selecionar o método de organiza
 
 Caso queria apenas testar o App sem execução do código no compilador, basta abrir a pasta \Ordenar\dist\Ordenar.jar > Selecionar Arquivo > Ler arquivo > Escolher um dos 7 Métodos para organizar > Salvar (opcional) o arquivo organizado.
 Algoritmos: Bubble Sort, Insertion Sort, Merge Sort, Quick Sort, Selection Sort, HeapSort e ShellSort.
+
+O arquivo dados.txt contem 1 milhão de linhas com números, que pode ser usado como teste dos algoritmos.
